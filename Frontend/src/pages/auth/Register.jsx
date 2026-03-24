@@ -16,8 +16,15 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Debug: Log the API endpoint
+  console.log('API_ENDPOINTS.REGISTER:', API_ENDPOINTS.REGISTER);
+
   const handleRegister = async (e) => {
     e.preventDefault();
+    
+    console.log('=== Registration Debug Info ===');
+    console.log('Form data:', formData);
+    console.log('API Endpoint:', API_ENDPOINTS.REGISTER);
     
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match!');
@@ -32,25 +39,38 @@ const Register = () => {
     setLoading(true);
 
     try {
+      // Create the request body
+      const requestBody = JSON.stringify(formData);
+      console.log('Request body:', requestBody);
+      
+      // Make the fetch request
       const response = await fetch(API_ENDPOINTS.REGISTER, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: requestBody,
       });
 
-      const data = await response.json();
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
 
-      if (response.ok) {
-        alert('Registration successful! Please login to continue.');
-        navigate('/login');
-      } else {
-        alert(data.message || 'Registration failed');
+      // Check if response is ok before parsing JSON
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
       }
+
+      const data = await response.json();
+      console.log('Success response:', data);
+
+      alert('Registration successful! Please login to continue.');
+      navigate('/login');
+      
     } catch (error) {
       console.error('Registration error:', error);
-      alert('Something went wrong. Please try again.');
+      alert(`Registration failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
