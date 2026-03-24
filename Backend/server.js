@@ -13,7 +13,7 @@ require("./config/db");
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-frontend-domain.vercel.app', 'https://your-frontend-domain.onrender.com']
+    ? ['https://your-frontend-url.onrender.com', 'https://your-frontend-url.vercel.app']
     : "http://localhost:5173"
 }));
 app.use(express.json());
