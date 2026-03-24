@@ -1,19 +1,19 @@
 import React, {useState } from 'react';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate, Link } from 'react-router-dom';
 import styles from './Auth.module.css';
 import Button from '../../components/Button/Button';
+import { API_ENDPOINTS } from '../../config/api';
 
 const Login = () => {
   const [role, setRole] = useState('student');
   const navigate = useNavigate();
-  const apiURL = "http://localhost:3000/api/auth/login";
   const [data, setData] = useState({email:'',password:'',role:role});
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     fetch(
-      apiURL,{
+      API_ENDPOINTS.LOGIN,{
         method:"POST",
         body:JSON.stringify(data),
         headers:{
@@ -106,6 +106,10 @@ const Login = () => {
           </Button>
 
         </form>
+
+        <div className={styles.footerText}>
+          Don't have an account? <Link to="/register">Sign up</Link>
+        </div>
       </div>
     </div>
   );

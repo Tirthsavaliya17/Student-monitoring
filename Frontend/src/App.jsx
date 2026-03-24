@@ -3,6 +3,7 @@ import './App.css';
 
 // Auth Pages
 import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 import ProtectedRoute from './routes/ProtectedRoutes';
 // Admin Pages
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -43,6 +44,7 @@ function App() {
 
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
 
         {/* ADMIN ROUTES */}

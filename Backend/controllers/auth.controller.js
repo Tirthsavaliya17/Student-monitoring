@@ -113,4 +113,61 @@ function getCurrentUser(req, res) {
     });
 }
 
-module.exports = { login , getCurrentUser };
+function register(req, res) {
+    const { name, email, password, role } = req.body;
+
+    if (!name || !email || !password || !role) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    if (password.length < 6) {
+        return res.status(400).json({ message: "Password must be at least 6 characters long" });
+    }
+
+    let checkSql, insertSql, insertValues;
+
+    if (role === "admin" || role === "staff") {
+        checkSql = "SELECT * FROM Staff WHERE EmailAddress=?";
+        insertSql = "INSERT INTO Staff (StaffName, EmailAddress, Password) VALUES (?, ?, ?)";
+        insertValues = [name, email, password];
+    } else if (role === "student") {
+        checkSql = "SELECT * FROM Student WHERE EmailAddress=?";
+        // Generate a unique enrollment number
+        const enrollmentNo = "STU" + Date.now().toString().slice(-6);
+        insertSql = "INSERT INTO Student (EnrollmentNo, StudentName, EmailAddress, Password) VALUES (?, ?, ?, ?)";
+        insertValues = [enrollmentNo, name, email, password];
+    } else {
+        return res.status(400).json({ message: "Invalid role" });
+    }
+
+    db.query(checkSql, [email], (err, rows) => {
+        if (err) {
+            console.error("Database check error:", err);
+            return res.status(500).json({ message: "Database error" });
+        }
+
+        if (rows.length > 0) {
+            return res.status(400).json({ message: "User with this email already exists" });
+        }
+
+        db.query(insertSql, insertValues, (err, result) => {
+            if (err) {
+                console.error("Registration error:", err);
+                return res.status(500).json({ message: "Registration failed: " + err.message });
+            }
+
+            res.status(201).json({
+                message: "Registration successful",
+                user: {
+                    id: result.insertId,
+                    name: name,
+                    email: email,
+                    role: role,
+                    enrollmentNo: role === "student" ? insertValues[0] : null
+                }
+            });
+        });
+    });
+}
+
+module.exports = { login, getCurrentUser, register };
