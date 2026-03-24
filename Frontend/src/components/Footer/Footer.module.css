@@ -1,0 +1,46 @@
+.footer {
+  margin-top: auto;
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+  color: var(--apple-text-muted);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.links a {
+  color: var(--apple-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.links a:hover {
+  color: var(--apple-text);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}

@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Ultra-Premium Black/White Professional Palette */
+  --apple-bg: #f5f5f7;
+  --apple-surface: #ffffff;
+  --apple-text: #111111;
+  /* Deeper black */
+  --apple-text-muted: #666666;
+  /* Sharper gray */
+  --apple-accent: #000000;
+  /* Pure Black Accent */
+  --apple-accent-hover: #333333;
+  /* Dark Charcoal Hover */
+  --apple-border: rgba(0, 0, 0, 0.08);
+  /* Slightly stronger border */
+
+  /* Theme Mapping */
+  --color-primary: var(--apple-text);
+  --color-primary-hover: #000000;
+  --color-primary-alpha: rgba(17, 17, 17, 0.05);
+
+  --color-accent: var(--apple-accent);
+  --color-accent-hover: var(--apple-accent-hover);
+  --color-accent-light: #f0f0f0;
+  /* Crisp very light gray instead of blue tint */
+  --color-accent-alpha: rgba(0, 0, 0, 0.08);
+
+  --color-button-primary: #111111;
+  /* Rich premium black */
+  --color-button-hover: #333333;
+  --color-button-text: #ffffff;
+
+  --color-background: var(--apple-bg);
+  --color-background-alt: #ebebeb;
+
+  --color-surface: rgba(255, 255, 255, 0.85);
+  /* For blurred glass effects */
+
+  --color-text-main: var(--apple-text);
+  --color-text-muted: var(--apple-text-muted);
+  --color-text-inverse: #ffffff;
+
+  --color-border: var(--apple-border);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+
+  --color-grid: rgba(0, 0, 0, 0.08);
+
+  --color-success: #10b981;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+  --color-danger: #ef4444;
+  --color-danger-bg: #fef2f2;
+
+  /* Premium SaaS Spacing System */
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Shadows (Crucial for SaaS look, completely revamped for softer depth) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* Baseline */
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  /* Hover target */
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  /* Deep hover */
+  --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  /* modals/dropdowns */
+  --shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.3);
+  /* Ring */
+
+  /* Geometry - Updated to softer, more modern tech look (12-16px) */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions - specifically tuned for UI interactions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.25s ease;
+  /* Fluid standard transition */
+  --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Slight bounce */
+}
+
+[data-theme='dark'] {
+  --apple-bg: #07080a;
+  /* Richer deep space black */
+  --apple-surface: rgba(26, 28, 36, 0.85);
+  /* Rich premium glassmorphism */
+  --apple-text: #ffffff;
+  --apple-text-muted: #94a3b8;
+  --apple-accent: #f1f5f9;
+  /* Rich bright frost white */
+  --apple-accent-hover: #ffffff;
+  --apple-border: rgba(255, 255, 255, 0.15);
+  /* More visible premium borders */
+
+  --color-primary: var(--apple-accent);
+  --color-primary-hover: var(--apple-accent-hover);
+  --color-primary-alpha: rgba(255, 255, 255, 0.1);
+
+  --color-accent: var(--apple-accent);
+  --color-accent-hover: var(--apple-accent-hover);
+  --color-accent-light: rgba(255, 255, 255, 0.15);
+  --color-accent-alpha: rgba(255, 255, 255, 0.2);
+
+  --color-button-primary: #6366f1;
+  /* Neon premium indigo */
+  --color-button-hover: #818cf8;
+  --color-button-text: #ffffff;
+
+  --color-background: var(--apple-bg);
+  --color-background-alt: #13141a;
+  /* Richer contrast block */
+
+  --color-surface: var(--apple-surface);
+
+  --color-text-main: var(--apple-text);
+  --color-text-muted: var(--apple-text-muted);
+  --color-text-inverse: #020617;
+  /* Very deep rich slate for inner button text */
+
+  --color-border: var(--apple-border);
+  --color-border-hover: rgba(255, 255, 255, 0.3);
+
+  --color-grid: rgba(255, 255, 255, 0.15);
+  /* Highly visible grid */
+
+  /* Next-level cinematic shadows */
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.9);
+  --shadow-md: 0 8px 16px -2px rgba(0, 0, 0, 0.9), 0 4px 8px -2px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.9), 0 8px 16px -4px rgba(0, 0, 0, 0.8);
+  --shadow-float: 0 0 40px -5px rgba(255, 255, 255, 0.12), 0 16px 24px -5px rgba(0, 0, 0, 0.9);
+  /* Rich glowing shadow */
+  --shadow-focus: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    fill 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    stroke 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme Toggle Animation Class */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 1s cubic-bezier(0.16, 1, 0.3, 1),
+    color 1s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 1s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 1s cubic-bezier(0.16, 1, 0.3, 1),
+    fill 1s cubic-bezier(0.16, 1, 0.3, 1),
+    stroke 1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Subtle SaaS Background Grid Pattern */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Highly visible, premium dark lines */
+  background-image:
+    linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  /* Slightly larger, highly visible grid */
+  pointer-events: none;
+  /* Very wide mask to keep lines visible almost everywhere */
+  mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Page Transitions */
+@keyframes pageEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animations Hub */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-page-entry {
+  animation: pageEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-scale {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+
+.stagger-5 {
+  animation-delay: 0.25s;
+}
+
+/* Layout Utilities (Global Grid) */
+.layout-container {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* Prevent horizontal scroll on float anims */
+}
+
+.layout-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  /* Add smooth transition to the whole page container */
+  animation: pageEntry 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.layout-content {
+  padding: var(--space-8);
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    padding: var(--space-6) var(--space-4);
+  }
+}

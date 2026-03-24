@@ -1,0 +1,72 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md); /* 8px */
+  transition: all 0.25s ease;      /* Smooth color transition specified */
+  outline: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 0.5rem;
+  line-height: 1.25rem;
+}
+
+.btn:active {
+  transform: scale(0.97); /* Subtle click down */
+}
+
+.btn:focus-visible {
+  box-shadow: var(--shadow-focus); /* Indigo focus ring */
+}
+
+/* Primary - Bold, High Contrast SaaS Style */
+.primary {
+  background-color: var(--color-button-primary);
+  color: var(--color-button-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.primary:hover {
+  background-color: var(--color-button-hover);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.04); /* Hover scale effect specified */
+}
+
+/* Secondary - Outline Style */
+.secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary:hover {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-border-hover);
+  transform: scale(1.04); /* Hover scale effect specified */
+}
+
+/* Danger */
+.danger {
+  background-color: var(--color-danger);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.danger:hover {
+  background-color: #b91c1c; /* Darker red */
+  transform: scale(1.04);
+}
+
+/* Utilities */
+.fullWidth {
+  width: 100%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}

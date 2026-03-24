@@ -1,0 +1,217 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+/* Stunning Premium Brand Area */
+.sidebarLogo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 12px 24px 12px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Harder black separator line */
+.sidebarLogo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.15), transparent);
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  background: var(--color-primary); /* Uses theme text color as background */
+  color: var(--color-text-inverse);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Deep shadow */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebarLogo:hover .logoIcon {
+  transform: scale(1.08); /* Confident scale */
+}
+
+.sidebarLogo span {
+  font-size: 1.35rem; /* Slightly larger */
+  font-weight: 800; /* Bolder */
+  color: var(--color-primary); /* Primary text */
+  letter-spacing: -0.03em;
+}
+
+/* Typography is key */
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Generous breathing room */
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--apple-text-muted); /* #86868b */
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 100%; /* For gradient hover */
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.02), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.iconWrap {
+  display: inline-flex;
+  opacity: 0.7;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttery Hover with Slide */
+.navLink:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: var(--apple-text); /* #1d1d1f */
+  transform: translateX(6px);
+}
+
+.navLink:hover::before {
+  transform: translateX(100%);
+}
+
+.navLink:hover .iconWrap {
+  opacity: 1;
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* The Masterpiece Active State - Pure Black Premium */
+.active {
+  background: var(--color-primary) !important; /* Premium Contrast */
+  color: var(--color-text-inverse) !important; /* Inverse Text */
+  font-weight: 600 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important; /* Drop shadow */
+  transform: translateX(6px); /* Shift to stand out */
+}
+
+.active .iconWrap {
+  opacity: 1;
+  color: var(--color-text-inverse); /* Inverse icon to match text */
+  transform: scale(1.1) !important;
+}
+
+/* Optional: Subtle white glow instead of blue line */
+.active::before {
+  display: none; /* No colored indicator needed when full black background */
+}
+
+/* Premium Footer Widget */
+.sidebarFooter {
+  margin-top: auto;
+  padding-top: 24px;
+  position: relative;
+}
+
+.sidebarFooter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.06), transparent);
+}
+
+.helpBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--color-background-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.helpBox:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.helpIcon {
+  font-size: 1.2rem;
+  padding: 8px;
+  background: var(--color-surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.helpBox p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--apple-text);
+  line-height: 1.2;
+}
+
+.helpBox span {
+  font-size: 0.7rem;
+  color: var(--apple-text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .sidebar { width: 220px; }
+}
+
+@media (max-width: 768px) {
+  .sidebarWrapper { display: none; }
+}

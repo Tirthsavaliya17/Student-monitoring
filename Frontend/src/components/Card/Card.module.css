@@ -1,0 +1,27 @@
+.card {
+  background: var(--color-surface); /* Glassmorphism surfaces fallback to solid */
+  backdrop-filter: blur(12px);       /* Extra blur */
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;  /* Smooth Apple curve */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Barely visible resting shadow */
+  border: 1px solid rgba(0, 0, 0, 0.04); /* Ultra thin gray border */
+  padding: var(--space-6);          /* Strong 24px padding inside */
+  transition: all var(--transition-smooth); /* 0.25s ease */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* Clean diffuse hover shadow */
+  transform: translateY(-2px);          /* Smooth elevation */
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);        /* Adjusted to spacing tokens */
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  letter-spacing: -0.01em;
+}
